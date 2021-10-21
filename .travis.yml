@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t tragu/docker-react -f Dockerbuild.dev .
+
+script:
+ -docker run tragu/docker-react npm run test -- --coverage 
